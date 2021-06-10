@@ -1,5 +1,6 @@
 "use strict";
-
+const http = require('http');
+const port = process.env.PORT || 3000;
 const fetch = require("node-fetch");
 const download = require("image-downloader");
 const wallpaper = require("wallpaper");
@@ -46,4 +47,8 @@ async function ensureImagesFolder(imageDirectory) {
 
         fs.mkdirSync(imageDirectory);
     }
-}
+}server.listen(port, () => {
+  console.log(`Server running on http://localhost:${port}/`);
+});
+
+
